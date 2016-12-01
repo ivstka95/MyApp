@@ -9,14 +9,15 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     //обьявляем контролы
-    EditText Name, Company, Email;
-    Button Save;
-    CheckBox Auto, CreditCard, Freelance, FullTime, Remote;
-    RadioButton Cpp, C, Java;
-    String Skills;
+    private EditText name, company, email;
+    private Button save;
+    private CheckBox auto, creditCard, freelance, fullTime, remote;
+    private RadioButton cpp, c, java;
+    private String skills;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,84 +25,82 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //инициализируем контролы
-        Name = (EditText) findViewById(R.id.Name);
-        Company = (EditText) findViewById(R.id.Company);
-        Email = (EditText) findViewById(R.id.Email);
-        Save = (Button) findViewById(R.id.ButtonSave);
-        Auto = (CheckBox) findViewById(R.id.Auto);
-        CreditCard = (CheckBox) findViewById(R.id.CreditCard);
-        Freelance = (CheckBox) findViewById(R.id.Freelance);
-        FullTime = (CheckBox) findViewById(R.id.Fulltime);
-        Remote = (CheckBox) findViewById(R.id.Remote);
+        name = (EditText) findViewById(R.id.name);
+        company = (EditText) findViewById(R.id.company);
+        email = (EditText) findViewById(R.id.email);
+        save = (Button) findViewById(R.id.buttonSave);
+        auto = (CheckBox) findViewById(R.id.auto);
+        creditCard = (CheckBox) findViewById(R.id.creditCard);
+        freelance = (CheckBox) findViewById(R.id.freelance);
+        fullTime = (CheckBox) findViewById(R.id.fulltime);
+        remote = (CheckBox) findViewById(R.id.remote);
 
-        Cpp = (RadioButton) findViewById(R.id.Cpp);
-        Cpp.setOnClickListener(radioButtonClickListener);
+        cpp = (RadioButton) findViewById(R.id.cpp);
+        cpp.setOnClickListener(this);
 
-        C = (RadioButton) findViewById(R.id.C);
-        C.setOnClickListener(radioButtonClickListener);
+        c = (RadioButton) findViewById(R.id.c);
+        c.setOnClickListener(this);
 
-        Java = (RadioButton) findViewById(R.id.Java);
-        Java.setOnClickListener(radioButtonClickListener);
+        java = (RadioButton) findViewById(R.id.java);
+        java.setOnClickListener(this);
 
 //обработчик кнопки SAVE
-        Save.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         // тут мы проверяем какой обязательной информации не хватает и просим пользователя ввести ее
                                         String enter = "Enter ";
-                                        if (Name.getText().toString().equals(""))
+                                        if (name.getText().toString().equals(""))
                                             enter += "Name ";
-                                        if (Company.getText().toString().equals(""))
+                                        if (company.getText().toString().equals(""))
                                             enter += "Company ";
-                                        if (Email.getText().toString().equals(""))
+                                        if (email.getText().toString().equals(""))
                                             enter += "Email ";
-                                        if (Skills == null)
+                                        if (skills == null)
                                             enter += "Skill ";
-                                        if (enter.length() != 6) {
-                                            Toast msg = Toast.makeText(getBaseContext(), enter, Toast.LENGTH_LONG);
-                                            msg.show();
-                                        }
+                                        if (enter.length() != 6)
+                                            Toast.makeText(getBaseContext(), enter, Toast.LENGTH_LONG).show();
+
 
 
 
 
                                         // если вся обязательная инфа введена то собираем дополнительную инфу из чекбоксов и выводим сообщение
                                         if (enter.equals("Enter ")) {
-                                            String str = Name.getText().toString() + " " + Company.getText().toString() + " " + Email.getText().toString() + " ";
-                                            if (Auto.isChecked()) str += "Auto ";
-                                            if (CreditCard.isChecked()) str += "Credit Card ";
-                                            if (Freelance.isChecked()) str += "Freelance ";
-                                            if (FullTime.isChecked()) str += "Fulltime ";
-                                            if (Remote.isChecked()) str += "Remote ";
-                                            str += Skills;
-                                            Toast msg = Toast.makeText(getBaseContext(), str, Toast.LENGTH_LONG);
-                                            msg.show();
+                                            String str = name.getText().toString() + " " + company.getText().toString() + " " + email.getText().toString() + " ";
+                                            if (auto.isChecked()) str += "Auto ";
+                                            if (creditCard.isChecked()) str += "Credit Card ";
+                                            if (freelance.isChecked()) str += "Freelance ";
+                                            if (fullTime.isChecked()) str += "Fulltime ";
+                                            if (remote.isChecked()) str += "Remote ";
+                                            str += skills;
+                                            Toast.makeText(getBaseContext(), str, Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }
         );
     }
     // извлекаем инфу из радиогруппы
-    View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            RadioButton rb = (RadioButton) v;
-            switch (rb.getId()) {
-                case R.id.C:
-                    Skills = "C";
-                    break;
 
-                case R.id.Cpp:
-                    Skills = "C++";
-                    break;
-                case R.id.Java:
-                    Skills = "Java";
-                    break;
+    @Override
+    public void onClick(View v) {
+        RadioButton rb = (RadioButton) v;
+        switch (rb.getId()) {
+            case R.id.c:
+                skills = "C";
+                break;
 
-                default:
-                    break;
-            }
+            case R.id.cpp:
+                skills = "C++";
+                break;
+            case R.id.java:
+                skills = "Java";
+                break;
+
+            default:
+                break;
         }
-    };
+
     }
+}
 

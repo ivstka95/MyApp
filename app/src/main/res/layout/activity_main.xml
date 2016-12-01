@@ -38,21 +38,21 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/Name"
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:hint="Name" />
 
                 <EditText
-                    android:id="@+id/Company"
+                    android:id="@+id/company"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:hint="Company" />
 
                 <EditText
-                    android:id="@+id/Email"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -67,14 +67,14 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/Auto"
+                    android:id="@+id/auto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Auto"
                     android:textAlignment="viewEnd" />
 
                 <CheckBox
-                    android:id="@+id/CreditCard"
+                    android:id="@+id/creditCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Credit card"
@@ -119,19 +119,19 @@
                 android:background="#0080ff"></FrameLayout>
 
             <CheckBox
-                android:id="@+id/Freelance"
+                android:id="@+id/freelance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Freelance" />
 
             <CheckBox
-                android:id="@+id/Fulltime"
+                android:id="@+id/fulltime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Fulltime" />
 
             <CheckBox
-                android:id="@+id/Remote"
+                android:id="@+id/remote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Remote" />
@@ -169,19 +169,19 @@
                 android:background="#0080ff"></FrameLayout>
 
             <RadioButton
-                android:id="@+id/Cpp"
+                android:id="@+id/cpp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="C++" />
 
             <RadioButton
-                android:id="@+id/C"
+                android:id="@+id/c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="C" />
 
             <RadioButton
-                android:id="@+id/Java"
+                android:id="@+id/java"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Java" />
@@ -218,7 +218,7 @@
             android:layout_margin="3dp"/>
 
         <Button
-            android:id="@+id/ButtonSave"
+            android:id="@+id/buttonSave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
