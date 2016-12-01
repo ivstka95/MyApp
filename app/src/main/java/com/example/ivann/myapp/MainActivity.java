@@ -1,7 +1,7 @@
 package com.example.ivann.myapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -104,4 +104,15 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     }
+
+/*
+ты красавчик что пишешь комменты, провда пока есть некоторые замечания :
+* 0 ПРАВИЛА НАИМЕНОВАНИЯ АЙДИШЕК И ДЖАВА ОБЕКТОВ ПРИВЯЗАНЫХ К ЭТИМ АЙДИШКАМ !!!!
+* 1 Не создавать обект слушателя (85 строка), если не хочется писать слушатель для каждой РБ,
+*       то имплементируй интерфейс и переопредели ОнКлик и проделай все тоже семае. (Я об этом говорил на лекции. СЛУШАЙ ТО ЧТО Я ГОВОРЮ)
+* 2 МОДИФИКАТОРЫ ДОСТУПА
+* 3 Давай более информативный ТОАСТ
+* 4 Не создавай обект тоаста
+* 5 !!! ПОКА НЕ ПИШИ ПОД АПИ 25. 21-22 БУДЕТ ДОСТАТОЧНО !!! Я ЭТО ТОЖЕ ГОВОРИЛ
+* */
 
