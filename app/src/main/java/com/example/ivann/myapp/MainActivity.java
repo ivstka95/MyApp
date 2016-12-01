@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox Auto, CreditCard, Freelance, FullTime, Remote;
     RadioButton Cpp, C, Java;
     String Skills;
-
+//lol
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
