@@ -1,229 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.example.ivann.myapp.MainActivity">
+    android:padding="15dp">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imBackGround"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="matrix"
+        android:src="@drawable/hhhhh" />
 
-        <FrameLayout
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:background="#35d600">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/asd2" />
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:hint="Name" />
-
-                <EditText
-                    android:id="@+id/company"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:hint="Company" />
-
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:hint="email"
-                    android:inputType="textEmailAddress" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:orientation="vertical">
-
-                <CheckBox
-                    android:id="@+id/auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Auto"
-                    android:textAlignment="viewEnd" />
-
-                <CheckBox
-                    android:id="@+id/creditCard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Credit card"
-                    android:textAlignment="viewEnd" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textColor="@android:color/white"
 
-        <FrameLayout
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#0080ff"></FrameLayout>
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#0080ff"></FrameLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="WORK SCHEDULLE" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#0080ff"></FrameLayout>
-
-            <CheckBox
-                android:id="@+id/freelance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Freelance" />
-
-            <CheckBox
-                android:id="@+id/fulltime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fulltime" />
-
-            <CheckBox
-                android:id="@+id/remote"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Remote" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#0080ff"></FrameLayout>
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#0080ff"></FrameLayout>
-
-        <RadioGroup
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#0080ff"></FrameLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="SKILLS" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#0080ff"></FrameLayout>
-
-            <RadioButton
-                android:id="@+id/cpp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="C++" />
-
-            <RadioButton
-                android:id="@+id/c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="C" />
-
-            <RadioButton
-                android:id="@+id/java"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Java" />
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#850080ff"></FrameLayout>
-        </RadioGroup>
-
-        <FrameLayout
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#0080ff"></FrameLayout>
-    </LinearLayout>
+        android:textSize="48sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="bottom">
+        android:orientation="vertical">
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Edit"
-            android:layout_margin="3dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:text="Hello again"
+            android:textAlignment="center"
+            android:textSize="44dp"/>
 
-        <Button
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="кнопка"
-            android:layout_margin="3dp"/>
+            android:text="sign in using"
+            android:textAlignment="textStart"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="0dp"
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/facebo"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/oogle"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Save"
-            android:layout_margin="3dp"/>
+            android:text="---------OR--------"
+            android:textSize="34dp"
+            android:textAlignment="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:hint="login"
+                android:layout_weight="1"
+                android:id="@+id/etLogin"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:hint="password"
+                android:layout_weight="1"
+                android:id="@+id/etPassword"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:text="LOG IN"
+            android:textSize="25dp"
+            android:background="#ff0004"
+            android:id="@+id/bLogin"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Forgot your password?"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="sign up"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Terms"
+                android:textAlignment="textEnd"/>
+        </LinearLayout>
 
     </LinearLayout>
-</LinearLayout>
+
+</FrameLayout>
