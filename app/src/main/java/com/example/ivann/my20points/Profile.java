@@ -3,9 +3,6 @@ package com.example.ivann.my20points;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.widget.ImageView;
-
-import java.net.URI;
 
 /**
  * Created by Ivann on 08.12.2016.
@@ -13,6 +10,7 @@ import java.net.URI;
 
 public class Profile implements Parcelable {
     Uri image;
+
     String name, surname, number, email, country, city, notes;
 
     public Profile(Uri image, String name, String surname, String email, String number, String country, String city, String notes) {
@@ -26,7 +24,10 @@ public class Profile implements Parcelable {
         this.notes = notes;
     }
 
+
+
     protected Profile(Parcel in) {
+        //image = in.readString();
         name = in.readString();
         surname = in.readString();
         number = in.readString();
@@ -35,6 +36,19 @@ public class Profile implements Parcelable {
         city = in.readString();
         notes = in.readString();
     }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        //parcel.writeString(image);
+        parcel.writeString(name);
+        parcel.writeString(surname);
+        parcel.writeString(number);
+        parcel.writeString(email);
+        parcel.writeString(country);
+        parcel.writeString(city);
+        parcel.writeString(notes);
+    }
+
 
     public static final Creator<Profile> CREATOR = new Creator<Profile>() {
         @Override
@@ -53,14 +67,5 @@ public class Profile implements Parcelable {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeString(surname);
-        parcel.writeString(number);
-        parcel.writeString(email);
-        parcel.writeString(country);
-        parcel.writeString(city);
-        parcel.writeString(notes);
-    }
+
 }

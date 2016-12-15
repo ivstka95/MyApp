@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
                     Intent newProfile = new Intent(getApplicationContext(),NewProfileActivity.class);
                     newProfile.putExtra(LOGIN,etLogin.getText().toString());
                     startActivity(newProfile);
-                   // Toast.makeText(getBaseContext(),"1111111111", Toast.LENGTH_LONG).show();
                     finish();
                 }
             }

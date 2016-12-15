@@ -17,8 +17,6 @@ import android.widget.Toast;
 import java.io.IOException;
 
 
-
-
 public class NewProfileActivity extends AppCompatActivity {
 
     private static final int GALLERY_REQUEST = 2;
@@ -35,7 +33,6 @@ public class NewProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_profile);
-        //Toast.makeText(getBaseContext(),"onCiiiiiiiick,", Toast.LENGTH_LONG).show();
         Intent i = getIntent();
         final Bundle extras = i.getExtras();
         String Login = extras.getString(LoginActivity.LOGIN);
@@ -63,7 +60,7 @@ public class NewProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-                Toast.makeText(getBaseContext(),"222222222222,", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "222222222222,", Toast.LENGTH_LONG).show();
             }
         });
         bSkip = (Button) findViewById(R.id.bSkip);
@@ -72,41 +69,35 @@ public class NewProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (etName.getText().length() == 0 && etSurName.getText().length() == 0 && etPhoneNumber.getText().length() == 0 && etEmail.getText().length() == 0 && etCountry.getText().length() == 0 && etCity.getText().length() == 0) {
                     Intent listViewActivity = new Intent(NewProfileActivity.this, ListViewActivity.class);
-                    startActivity(listViewActivity);
-                    //startActivityForResult(listViewActivity, LIST_VIEW_REQUEST);
+                    //startActivity(listViewActivity);
+                    startActivityForResult(listViewActivity, LIST_VIEW_REQUEST);
                 }
             }
         });
         bOk = (Button) findViewById(R.id.bOk);
         bOk.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(getBaseContext(),"onClick,", Toast.LENGTH_LONG).show();
-                if (InputChecker.checkEmail(etEmail.getText().toString())
+            public void onClick(View view) {// тут мне надо дописать проверку в ифе о отправить обьект
+                if (/*InputChecker.checkEmail(etEmail.getText().toString())
                         && InputChecker.checkNumber(etPhoneNumber.getText().toString())
                         && etName.getText().length() != 0 && etSurName.getText().length() != 0
                         && etPhoneNumber.getText().length() != 0 && etEmail.getText().length() != 0
                         && etCountry.getText().length() != 0 && etCity.getText().length() != 0
-                        && uriImage != null) {
+                        && uriImage != null*/ true) {
 
-                   // Toast.makeText(getBaseContext(),"Inside if,", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(), "Inside if,", Toast.LENGTH_LONG).show();
                     Intent listViewActivity = new Intent(NewProfileActivity.this, ListViewActivity.class);
-                    listViewActivity.putExtra(PROFILE_OBJECT, new Profile(uriImage, etName.getText().toString(),
-                            etSurName.getText().toString(),
-                            etEmail.getText().toString(), etPhoneNumber.getText().toString(),
-                            etCountry.getText().toString(), etCity.getText().toString(),
-                            etNotes.getText().toString()));
-                    ///sdddddkn
-
-
-
-
+                    listViewActivity.putExtra(PROFILE_OBJECT,new Profile(uriImage, etName.getText().toString(),
+                            etSurName.getText().toString(), etPhoneNumber.getText().toString(),
+                            etEmail.getText().toString(), etCountry.getText().toString(),
+                            etCity.getText().toString(), etNotes.getText().toString()));
                     startActivityForResult(listViewActivity, LIST_VIEW_REQUEST);
+
                 }
-
-
             }
-        });
+
+
+            });
 
 
     }
@@ -115,25 +106,22 @@ public class NewProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
-
         Bitmap bitmap = null;
-
-        switch (requestCode) {
-            case GALLERY_REQUEST:
-                if (resultCode == RESULT_OK) {
-                    Uri selectedImage = imageReturnedIntent.getData();
-                    uriImage = imageReturnedIntent.getData();
-                    try {
-                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    iProfilePicture.setImageBitmap(bitmap);
+        if (requestCode == GALLERY_REQUEST)
+            if (resultCode == RESULT_OK) {
+                Uri selectedImage = imageReturnedIntent.getData();
+                uriImage = imageReturnedIntent.getData();
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            case LIST_VIEW_REQUEST:
-                if (resultCode == RESULT_OK)
-                    finish();
+                iProfilePicture.setImageBitmap(bitmap);
+            }
+        if (requestCode == LIST_VIEW_REQUEST)
+            if (resultCode == RESULT_OK)
+                finish();
 
-        }
     }
 }
+
