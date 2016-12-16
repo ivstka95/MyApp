@@ -1,6 +1,5 @@
 package com.example.ivann.my20points;
 
-import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -9,11 +8,11 @@ import android.os.Parcelable;
  */
 
 public class Profile implements Parcelable {
-    Uri image;
+    String image;
 
     String name, surname, number, email, country, city, notes;
 
-    public Profile(Uri image, String name, String surname, String email, String number, String country, String city, String notes) {
+    public Profile(String image, String name, String surname, String email, String number, String country, String city, String notes) {
         this.image = image;
         this.name = name;
         this.surname = surname;
@@ -27,7 +26,7 @@ public class Profile implements Parcelable {
 
 
     protected Profile(Parcel in) {
-        //image = in.readString();
+        image = in.readString();
         name = in.readString();
         surname = in.readString();
         number = in.readString();
@@ -39,7 +38,7 @@ public class Profile implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        //parcel.writeString(image);
+        parcel.writeString(image);
         parcel.writeString(name);
         parcel.writeString(surname);
         parcel.writeString(number);

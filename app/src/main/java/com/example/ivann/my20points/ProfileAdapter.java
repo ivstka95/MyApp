@@ -1,9 +1,7 @@
 package com.example.ivann.my20points;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,14 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.bitmap;
-import static com.example.ivann.my20points.NewProfileActivity.uriImage;
 
 
 /**
@@ -73,7 +65,7 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
         final int pos = position;
 
         ImageView ivSmallLogo = (ImageView) view.findViewById(R.id.ivSmallLogo);
-        ivSmallLogo.setImageURI(uriImage);
+        ivSmallLogo.setImageURI(Uri.parse(list.get(position).image));
 
         TextView tvName = (TextView) view.findViewById(R.id.tvName);
         tvName.setText(list.get(position).name);
